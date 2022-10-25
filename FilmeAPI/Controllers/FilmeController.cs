@@ -1,4 +1,5 @@
-﻿using FilmeAPI.Models;
+﻿using FilmeAPI.Data;
+using FilmeAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,34 +11,73 @@ namespace FilmeAPI.Controllers
     [Route("[controller]")]
     public class FilmeController : ControllerBase
     {
-        private static List<Filme> filmes = new List<Filme>();
-        private static int id = 1;
+        private FilmeContext _context;
+
+        public FilmeController(FilmeContext context)
+        {
+            _context = context;
+        }
 
         [HttpPost]
         public IActionResult AdicionaFilme([FromBody] Filme filme)
         {
-            filme.Id = id++;
-            filmes.Add(filme);
+            _context.Filmes.Add(filme);
+            _context.SaveChanges();
 
             return CreatedAtAction(nameof(RecuperaFilmesPorId), new { Id = filme.Id }, filme);
         }
 
         [HttpGet]
-        public IActionResult RecuperarFilmes()
+        public IEnumerable<Filme> RecuperarFilmes()
         {
-            return Ok(filmes);
+            return _context.Filmes;
         }
 
         [HttpGet("{id}")]
         public IActionResult RecuperaFilmesPorId(int id)
         {
-            Filme filme = filmes.FirstOrDefault(Filme => Filme.Id == id); // LINQ
+            Filme filme = _context.Filmes.FirstOrDefault(Filme => Filme.Id == id); // LINQ
             if (filme != null)
             {
                 return Ok(filme);
             }
                 
             return NotFound();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult AtualizaFilme(int id, [FromBody] Filme filmeNovo)
+        {
+            Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id); // Repetição de código, precisamos arrumar depois
+
+            if (filme == null)
+            {
+                return NotFound();
+            }
+
+            filme.Titulo = filmeNovo.Titulo; // Atribuição manual, devemos evitar isso...
+            filme.Genero = filmeNovo.Genero;
+            filme.Diretor = filmeNovo.Diretor;
+            filme.Duracao = filmeNovo.Duracao;
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public IActionResult DeletaFilme(int id)
+        {
+            Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id); // Repetição de código, precisamos arrumar depois
+
+            if (filme == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(filme);
+            _context.SaveChanges();
+
+            return NoContent();
         }
     }
 }
