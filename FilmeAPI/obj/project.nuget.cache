@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1gsDhJmjzNXxN3+VBKiipCt0P6QxMUuUTjNc0k2voEwIPw3JMmf8IX36fLugm6bdv/mO6oTZLZs5eUKs4hWngg==",
+  "dgSpecHash": "wRfvtDL77N75c+XOElBbovst7OYu1e53H9yP2qlb+uTtctachLSG8+7hKTIaMoeXDvtpX8/TR/DcV6hb4k43aQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Win10\\Desktop\\Projetos Pottencial\\Extras\\4 - API Rest com .NET 5 Operações essenciais\\filmes-api\\FilmeAPI\\FilmeAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Win10\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Win10\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
@@ -43,6 +45,7 @@
     "C:\\Users\\Win10\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Win10\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512",

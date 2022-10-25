@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace FilmeAPI.Models
+namespace FilmeAPI.Data.Dtos
 {
-    public class Filme
+    public class ReadFilmeDto
     {
         [Key]
         [Required]
@@ -13,7 +14,8 @@ namespace FilmeAPI.Models
         public string Diretor { get; set; }
         [StringLength(30, ErrorMessage = "O gênero não pode passar de 30 caracteres")] // Tamanho máximo aceito
         public string Genero { get; set; }
-        [Range(1, 600, ErrorMessage = "A duração deve ter no mínimo 1 minuto e no máximo 600 minutos")] // Só aceita valores entre esses
+        [Range(1, 600, ErrorMessage = "A duração deve ter no mínimo 1 e no máximo 600 minutos")] // Só aceita valores entre esses
         public int Duracao { get; set; }
+        public DateTime HoraDaConsulta { get; set; }
     }
 }
